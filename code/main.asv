@@ -3,8 +3,8 @@
 sigma = 2;
 thresh = 0.01;
 radius = 2;
-window_size = 9;
-distance_threshold = 0.005;
+window_size = 3;
+distance_threshold = 0.003;
 
 %Read image 1 and image 2
 img1 = imread('../data/part1/uttower/left.jpg');
@@ -23,10 +23,6 @@ img2 = im2double(img2);
 % imshow(cim1);
 % figure;
 % imshow(cim2);
-figure;
-show_all_circles(img1, c1, r1, 2, 'b', 1);
-figure;
-show_all_circles(img2, c2, r2, 2, 'b', 1);
 
 %total number of keypoints in both images
 keypoints1_count = size(r1, 1);
@@ -36,8 +32,6 @@ keypoints2_count = size(r2, 1);
 neighbor1 = zeros(keypoints1_count, window_size^2);
 for i=1:keypoints1_count
     fneighbor_arr = extractNeighborhood(img1, r1(i), c1(i), window_size);
-%     fneighbor_arr = fneighbor_arr - mean(fneighbor_arr(:));
-%     fneighbor_arr = fneighbor_arr/std(fneighbor_arr(:));
     neighbor1(i, :) = fneighbor_arr;
 end
 
@@ -45,8 +39,8 @@ end
 neighbor2 = zeros(keypoints2_count, window_size^2);
 for i=1:keypoints2_count
     fneighbor_arr = extractNeighborhood(img2, r2(i), c1(i), window_size);
-%     fneighbor_arr = fneighbor_arr - mean(fneighbor_arr(:));
-%     fneighbor_arr = fneighbor_arr/std(fneighbor_arr(:));
+    fneighbor_arr = fneighbor_arr - mean(fneighbor_arr(:));
+    fneighbor_arr = fneighbor_arr
     neighbor2(i, :) = fneighbor_arr;
 end
 
