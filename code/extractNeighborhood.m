@@ -12,8 +12,8 @@ function fneighbor_arr = extractNeighborhood(image, x_coordinate, y_coordinate, 
 %       fneighbor_arr - flattened neighborhood descriptor for the given keypoint
 
   offset = (window_size - 1)/2;
-  disp(x_coordinate);
-  disp(y_coordinate);
+  % disp(x_coordinate);
+  % disp(y_coordinate);
   img = image;
   if(x_coordinate <= offset)
       img = padarray(image, [offset 0], 'replicate', 'pre');
@@ -29,8 +29,8 @@ function fneighbor_arr = extractNeighborhood(image, x_coordinate, y_coordinate, 
       img = padarray(img, [0 offset], 'replicate', 'post');
       %y_coordinate = y_coordinate - offset;
   end
-  disp(x_coordinate);
-  disp(y_coordinate);
+  % disp(x_coordinate);
+  % disp(y_coordinate);
   start_x = x_coordinate - offset;
   end_x = x_coordinate + offset;
   start_y = y_coordinate - offset;
@@ -38,4 +38,7 @@ function fneighbor_arr = extractNeighborhood(image, x_coordinate, y_coordinate, 
   
   neighbor_arr = img(start_x:end_x, start_y:end_y);
   fneighbor_arr = reshape(neighbor_arr, [1, window_size^2]);
+  % if(x_coordinate< 20 || y_coordinate< 20)
+  %   fneighbor_arr
+  % end
 end
