@@ -92,3 +92,8 @@ image2_points(:, 2)= corr2(col,2);
 % plot(c2(col),r2(col),'ys');
 %plot point pairs on images
 plot_lines(img1, img2, image1_points, image2_points);
+
+%RANSAC
+[H, inliers_img1,inliers_img2] = ransac(image1_points, image2_points);
+plot_lines(img1, img2, inliers_img1, inliers_img2);
+
