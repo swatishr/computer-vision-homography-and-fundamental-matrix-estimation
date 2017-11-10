@@ -42,8 +42,8 @@ function [neighbor_arr, corr] = extractNeighborhood2(image,x_coordinate, y_coord
       start_y = Y - offset;
       end_y = Y + offset;
       neighbor_arr(K,:,:) = image(start_x:end_x, start_y:end_y);
-      corr(K,1) = X;
-      corr(K,2) = Y;
+      corr(K,1) = Y;
+      corr(K,2) = X;
     end
   end
   corr = corr(1:K,:);

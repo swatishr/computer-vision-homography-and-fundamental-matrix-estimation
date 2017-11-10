@@ -1,7 +1,7 @@
 function [maxH, maxinliers_img1, maxinliers_img2] = ransac(image1_points, image2_points)
 %
 h = size(image1_points, 1);
-N = 5000;
+N = 1000;
 inlier_dist_thresh = 10;
 inlier_maxcount = -99;
 random_pts = 4;

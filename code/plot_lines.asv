@@ -15,6 +15,6 @@ plot(image2_points(:, 2)+width,image2_points(:, 1),'+c');
 truesize;
 
 for i=1:size(image1_points, 1)
-    plot([image1_points(i, 2) (image2_points(i, 2)++width)],[image1_points(i, 1) image2_points(i, 1)], 'r');
+    plot([image1_points(i, 2) (image2_points(i, 2))],[image1_points(i, 2) (image2_points(i, 2)+width)], 'r');
 end
 end

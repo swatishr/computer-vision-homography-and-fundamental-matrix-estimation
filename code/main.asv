@@ -80,10 +80,10 @@ distance_matrix = dist2(neighbor1, neighbor2);
 %store the putative matches in a list of point pairs
 image1_points = zeros(size(row, 1),2);
 image2_points = zeros(size(col, 1),2);
-image1_points(:, 1) = corr1(row,1);
-image1_points(:, 2) = corr1(row,2);
-image2_points(:, 1) =  corr2(col,1);
-image2_points(:, 2)= corr2(col,2);
+image1_points(:, 2) = corr1(row,1);
+image1_points(:, 1) = corr1(row,2);
+image2_points(:, 2) =  corr2(col,1);
+image2_points(:, 1)= corr2(col,2);
 % figure;
 % imshow(img1);
 % hold on;
