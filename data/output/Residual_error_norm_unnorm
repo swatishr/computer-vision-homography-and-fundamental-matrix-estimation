@@ -1,0 +1,31 @@
+#####Unnormalized####
+
+residual_error1 =
+
+   4.3421e+04
+
+
+residual_error2 =
+
+   3.9473e+04
+
+#####Normalized#####
+
+residual_error1 =
+
+   4.1480e+04
+
+
+residual_error2 =
+
+   3.6276e+04
+--------------------
+   Dividing by F[3,3]
+   residual_error1 =
+
+   4.1476e+04
+
+
+residual_error2 =
+
+   3.6272e+04

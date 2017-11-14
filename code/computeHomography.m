@@ -1,5 +1,5 @@
 function [H] = commputeHomography(src, dest)
-
+%Function to compute homography
     A = zeros(8, 9);
     A(1:2:8, 1) = src(:, 1);
     A(1:2:8, 2) = src(:, 2);

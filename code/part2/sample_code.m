@@ -2,9 +2,9 @@
 %% load images and match files for the first example
 %%
 
-I1 = imread('house1.jpg');
-I2 = imread('house2.jpg');
-matches = load('house_matches.txt'); 
+I1 = imread('../../data/part2/house1.jpg');
+I2 = imread('../../data/part2/house2.jpg');
+matches = load('../../data/part2/house_matches.txt'); 
 % this is a N x 4 file where the first two numbers of each row
 % are coordinates of corners in the first image and the last two
 % are coordinates of corresponding corners in the second image: 
@@ -77,6 +77,9 @@ plot(matches(:,3), matches(:,4), '+r');
 line([matches(:,3) closest_pt(:,1)]', [matches(:,4) closest_pt(:,2)]', 'Color', 'r');
 line([pt1(:,1) pt2(:,1)]', [pt1(:,2) pt2(:,2)]', 'Color', 'g');
 
-%Residual Error
-residual_error1 = immse([matches(:,1:2), ones(size(matches,1),1)], L1) %sum((matches(:,1:2)-L1(:,1:2)).^2);
-residual_error2 = immse([matches(:,3:4), ones(size(matches,1),1)], L) 
+%Residual
+residual1 = sum(pt_line_dist1 .^ 2)/N;
+residual2 = sum(pt_line_dist .^ 2)/N;
+
+fprintf("\nResidual for Image 1: %.4f", residual1);
+fprintf("\nResidual for Image 2: %.4f", residual2);

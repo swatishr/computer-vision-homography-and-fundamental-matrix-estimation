@@ -1,11 +1,9 @@
-function plot_lines(image1, image2, image1_points, image2_points)
+function plot_lines(image1, image2, image1_points, image2_points, title)
+%To plot lines
 
-figure;
-% imshow(image1);
+figure('NumberTitle', 'off', 'Name', title);
 hold on;
 imshow([image1, image2]);
-% img=[image1;image2];
-% imshow(img)
 width = size(image1, 2);
 
 hold on;

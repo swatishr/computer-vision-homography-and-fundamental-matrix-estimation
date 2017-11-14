@@ -16,17 +16,17 @@ function fneighbor_arr = extractNeighborhood(image, x_coordinate, y_coordinate, 
   % disp(y_coordinate);
   img = image;
   if(x_coordinate <= offset)
-      img = padarray(image, [offset 0], 'replicate', 'pre');
+      img = padarray(image, [offset 0], 0, 'pre');
       x_coordinate = x_coordinate + offset;
   elseif(x_coordinate >= (size(image, 1)-offset+1))
-      img = padarray(image, [offset 0], 'replicate', 'post');
+      img = padarray(image, [offset 0], 0, 'post');
       %x_coordinate = x_coordinate - offset;
   end
   if(y_coordinate <= offset)
-      img = padarray(img, [0 offset], 'replicate', 'pre');
+      img = padarray(img, [0 offset], 0, 'pre');
       y_coordinate = y_coordinate + offset;
   elseif(y_coordinate >= (size(image, 2)-offset+1))
-      img = padarray(img, [0 offset], 'replicate', 'post');
+      img = padarray(img, [0 offset], 0, 'post');
       %y_coordinate = y_coordinate - offset;
   end
   % disp(x_coordinate);
@@ -38,7 +38,4 @@ function fneighbor_arr = extractNeighborhood(image, x_coordinate, y_coordinate, 
   
   neighbor_arr = img(start_x:end_x, start_y:end_y);
   fneighbor_arr = reshape(neighbor_arr, [1, window_size^2]);
-  % if(x_coordinate< 20 || y_coordinate< 20)
-  %   fneighbor_arr
-  % end
 end
